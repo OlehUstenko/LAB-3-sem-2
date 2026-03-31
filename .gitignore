@@ -1,0 +1,15 @@
+# Скомпілований код (бінарні файли)
+[Bb]in/
+[Oo]bj/
+
+# Тимчасові файли Visual Studio
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+
+# Файли конфігурації користувача та кеш
+.idea/
+.vscode/
+*.suo
+*.user
