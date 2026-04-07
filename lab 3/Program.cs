@@ -79,7 +79,7 @@ namespace lab_3
         {
             Console.WriteLine("Введіть скільки елементів треба знищити: ");
             int T = int.Parse(Console.ReadLine());
-            Console.WriteLine("З якого елементу починати: ");
+            Console.WriteLine("З якого елементу починати (рахувати з 0): ");
             int K = int.Parse(Console.ReadLine());
             if (K < 0)
             {
@@ -103,13 +103,21 @@ namespace lab_3
                 Console.WriteLine("Кількість елементів для видалення має бути більшою за 0.");
                 return;
             }
+            for (int i = K; i < arr.Length - count; i++)
+            {
+                arr[i] = arr[i + count];
+            }
+            Array.Resize(ref arr, arr.Length - count);
+
+            Console.WriteLine("Елементи успішно видалено.");
         }
         static void Main(string[] args)
         {
             Console.OutputEncoding = Encoding.UTF8;
             int[] arr = FillingMethod();
-            PrintArray(arr, "SOME TEXT FOR TEST: ");
-
+            PrintArray(arr, "Масив до обробки: ");
+            RemoveElements(ref arr);
+            PrintArray(arr, "Масив після видалення:");
         }
     }
 }
