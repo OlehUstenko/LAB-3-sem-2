@@ -11,9 +11,25 @@ namespace lab_3
         public static void Block2Start()
         {
             Console.OutputEncoding = Encoding.UTF8;
-
-            int[][] array = ManualFilling();
-
+            Console.WriteLine("Оберіть дію" +
+                "\n1.Заповнити масив вручну" +
+                "\n2. Заповнити масив рандом");
+            string choise = Console.ReadLine();
+            int[][] array = null;
+            switch (choise)
+            {
+                case "1":
+                    array = ManualFilling();
+                    break;
+                case "2":
+                    array = RandomFilling();
+                    break;
+                default:
+                    Console.WriteLine("Error");
+                    break;
+            }
+            PrintArray(array);
+            RemoveRows(ref array);
             PrintArray(array);
         }
         public static int[][] ManualFilling()
@@ -69,6 +85,35 @@ namespace lab_3
                 }
                 Console.WriteLine();
             }
+        }
+        public static void RemoveRows(ref int[][] array)
+        {
+            Console.Write("Введіть порядковий номер рядка з якого починати : ");
+            int k1 = int.Parse(Console.ReadLine());
+
+            Console.Write("Введіть порядковий номер рядка на якому завершити : ");
+            int k2 = int.Parse(Console.ReadLine());
+
+            if (k1 > k2)
+            {
+                (k1, k2) = (k2, k1);
+            }
+
+            if (k2 > array.Length || k1 < 1)
+            {
+                Console.WriteLine("ви вийшли за межі");
+                return;
+            }
+            
+            int count = k2 - k1 + 1;
+            for (int i = k1 - 1; i < array.Length - count; i++)
+            {
+                array[i] = array[i + count];
+            }
+            Array.Resize(ref array, array.Length - count);
+
+            Console.WriteLine($"Успішно видалено {count} рядків.");
+
         }
     }
 }
