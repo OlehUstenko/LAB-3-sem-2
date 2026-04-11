@@ -8,7 +8,7 @@ namespace lab_3
 {
     internal class Block_1
     {
-        static void Block1()
+        public static void Block1Start()
         {
             Console.OutputEncoding = Encoding.UTF8;
             int[] arr = FillingMethod();
@@ -16,11 +16,11 @@ namespace lab_3
             RemoveElements(ref arr);
             PrintArray(arr, "Масив після видалення:");
         }
-        static int[] FillingMethod()
+        public static int[] FillingMethod()
         {
             Console.Write("Яким чином  бажаєте заповнити масив? \n" +
-               "(введіть 1) випадковим чином\n" +
-               "(введіть 2) вручну через пробіл\n" +
+               "1. випадковим чином\n" +
+               "2. вручну через пробіл\n" +
                "Ваш вибір: ");
             int choise = int.Parse(Console.ReadLine());
             Console.Write("Введіть розмір масиву: ");
@@ -43,7 +43,7 @@ namespace lab_3
             }
             return array;
         }
-        static int[] HandSpace(int size)
+        public static int[] HandSpace(int size)
         {
             Console.WriteLine("Введіть значення масиву через пробіл:");
             string input = Console.ReadLine();
@@ -59,7 +59,7 @@ namespace lab_3
             Console.WriteLine("\n");
             return array;
         }
-        static int[] RandomArray(int size)
+        public static int[] RandomArray(int size)
         {
             Console.Write("Введіть мінімальне значення рандому: ");
             int min = int.Parse(Console.ReadLine());
@@ -77,7 +77,7 @@ namespace lab_3
             Console.WriteLine("\n");
             return array;
         }
-        static void PrintArray(int[] arr, string message)
+        public static void PrintArray(int[] arr, string message)
         {
             Console.WriteLine(message);
             for (int i = 0; i < arr.Length; i++)
@@ -86,12 +86,12 @@ namespace lab_3
             }
             Console.WriteLine("\nДовжина масиву: " + arr.Length);
         }
-        static void RemoveElements(ref int[] arr)
+        public static void RemoveElements(ref int[] arr)
         {
             Console.WriteLine("Введіть скільки елементів треба знищити: ");
             int T = int.Parse(Console.ReadLine());
-            Console.WriteLine("З якого елементу починати (рахувати з 0): ");
-            int K = int.Parse(Console.ReadLine());
+            Console.WriteLine("З якого елементу починати : ");
+            int K = int.Parse(Console.ReadLine())-1;
             if (K < 0)
             {
                 Console.WriteLine("Помилка: Індекс K не може бути від'ємним. Операцію скасовано.");
@@ -99,7 +99,7 @@ namespace lab_3
             }
             if (K >= arr.Length)
             {
-                Console.WriteLine($"Помилка: Індекс {K} поза межами масиву (довжина {arr.Length}).");
+                Console.WriteLine($"Помилка: Індекс {K+1} поза межами масиву (довжина {arr.Length}).");
                 return;
             }
             int count = T;
