@@ -113,6 +113,8 @@ namespace lab_3
         }
         static void Main(string[] args)
         {
+            //тут переробити на вибір блок 1 чи 2
+
             Console.OutputEncoding = Encoding.UTF8;
             int[] arr = FillingMethod();
             PrintArray(arr, "Масив до обробки: ");
