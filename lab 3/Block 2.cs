@@ -12,15 +12,17 @@ namespace lab_3
         {
             Console.OutputEncoding = Encoding.UTF8;
 
-            int[][] array = RandomFilling();
+            int[][] array = ManualFilling();
 
             PrintArray(array);
         }
-        public static int[][] ManualFilling(int[][] array)
+        public static int[][] ManualFilling()
         {
             Console.WriteLine("Введіть клькіть рядків: ");//прибрати повторюваний код
             int rows = int.Parse(Console.ReadLine());
-            array = new int[rows][];
+
+            int[][] array = new int[rows][]; 
+
             for (int i = 0; i < rows; i++)
             {
                 Console.WriteLine($"Введіть рядок {i+1} через пробіли : ");
