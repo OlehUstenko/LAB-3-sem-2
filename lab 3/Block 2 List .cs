@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace lab_3
 {
-    internal class Block_2_lList
+    internal class Block_2_List
     {
         public static void Block2ListStart()
         {
@@ -30,9 +30,9 @@ namespace lab_3
                     Console.WriteLine("Error");
                     break;
             }
-            PrintArray(matrix);
-            RemoveRows(ref matrix);
-            PrintArray(matrix);
+            PrintArrayList(matrix);
+            RemoveRows(matrix);
+            PrintArrayList(matrix);
         }
         public static List<List<int>> ManualFilling()
         {
@@ -79,12 +79,12 @@ namespace lab_3
             }
             return matrix;
         }
-        public static void PrintArray(List<List<int>> matrix)
+        public static void PrintArrayList(List<List<int>> matrix)
         {
             Console.WriteLine("\nПоточний зубчастий список:");
             for (int i = 0; i < matrix.Count; i++)
             {
-                Console.Write($"Рядок {i} (Count: {matrix[i].Count}):\t");
+                Console.Write($"Рядок {i+1} (Elems: {matrix[i].Count}):\t");
                 Console.WriteLine(string.Join(" ", matrix[i]));
             }
             Console.WriteLine();
